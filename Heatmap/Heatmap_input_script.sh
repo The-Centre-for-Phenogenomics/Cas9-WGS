@@ -40,7 +40,7 @@ cat Bb_out_78samples_List.txt | while read sample1; do
 			sample1and2common=$(cat isec_OUTPUTb_snps/${sample1}___AND___${sample2}/0002.vcf | grep -v "^#" | wc -l)
 
 			## the calculation requires floating decimal numbers which bash can not handle well, so better to call a Python file
-			Percent=$(python Cb_percentCalculate.py $sample1unique $sample2unique $sample1and2common)
+			Percent=$(python Heatmap_input_calculate_percent_common_variants.py $sample1unique $sample2unique $sample1and2common)
 			echo "Percent: "$Percent
 
 			echo -n $Percent"	" >> $outputFile ## for each comparison print the Percent of common variants to the output
